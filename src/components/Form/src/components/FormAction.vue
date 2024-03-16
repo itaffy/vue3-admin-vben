@@ -2,16 +2,6 @@
   <Col v-bind="actionColOpt" v-if="showActionButtonGroup">
     <div style="width: 100%" :style="{ textAlign: actionColOpt.style.textAlign }">
       <Form.Item>
-        <slot name="resetBefore"></slot>
-        <Button
-          type="default"
-          class="mr-2"
-          v-bind="getResetBtnOptions"
-          @click="resetAction"
-          v-if="showResetButton"
-        >
-          {{ getResetBtnOptions.text }}
-        </Button>
         <slot name="submitBefore"></slot>
 
         <Button
@@ -22,6 +12,16 @@
           v-if="showSubmitButton"
         >
           {{ getSubmitBtnOptions.text }}
+        </Button>
+        <slot name="resetBefore"></slot>
+        <Button
+          type="default"
+          class="mr-2"
+          v-bind="getResetBtnOptions"
+          @click="resetAction"
+          v-if="showResetButton"
+        >
+          {{ getResetBtnOptions.text }}
         </Button>
 
         <slot name="advanceBefore"></slot>

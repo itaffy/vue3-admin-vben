@@ -38,7 +38,7 @@ export interface PaginationProps {
    * current page number
    * @type number
    */
-  current?: number;
+  pageIndex?: number;
 
   /**
    * default number of data items per page

@@ -46,7 +46,7 @@
     api: getRoleList,
     columns,
     formConfig: {
-      labelWidth: 120,
+      labelWidth: 80,
       schemas: searchFormSchema,
     },
     useSearchForm: true,

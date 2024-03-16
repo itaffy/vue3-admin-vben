@@ -1,6 +1,6 @@
 import { BasicColumn, FormSchema } from '@/components/Table';
 import { h } from 'vue';
-import { Switch } from 'ant-design-vue';
+import { Switch, Tag } from 'ant-design-vue';
 import { setRoleStatus } from '@/api/demo/system';
 import { useMessage } from '@/hooks/web/useMessage';
 
@@ -13,6 +13,13 @@ export const columns: BasicColumn[] = [
   {
     title: '状态',
     dataIndex: 'State',
+    customRender: ({ record }) => {
+      const state = record.State;
+      const enable = state === false;
+      const color = enable ? 'green' : 'red';
+      const text = enable ? '启用' : '停用';
+      return h(Tag, { color: color }, () => text);
+    },
     // customRender: ({ record }) => {
     //   if (!Reflect.has(record, 'pendingStatus')) {
     //     record.pendingStatus = false;

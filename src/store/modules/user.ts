@@ -45,6 +45,9 @@ export const useUserStore = defineStore({
     getUserInfo(state): UserInfo {
       return state.userInfo || getAuthCache<UserInfo>(USER_INFO_KEY) || {};
     },
+    getLoginInfo(state): LoginInfo {
+      return state.loginInfo || getAuthCache<LoginInfo>(LOGIN_INFO_KEY) || {};
+    },
     getToken(state): string {
       return state.token || getAuthCache<string>(TOKEN_KEY);
     },
@@ -74,6 +77,7 @@ export const useUserStore = defineStore({
     },
     setLoginInfo(info: LoginInfo | null) {
       this.loginInfo = info;
+      this.lastUpdateTime = new Date().getTime();
       setAuthCache(LOGIN_INFO_KEY, info);
     },
     setSessionTimeout(flag: boolean) {

@@ -16,6 +16,8 @@
         :theme="getHeaderTheme"
         :sider="false"
       />
+      <span class="text-dark-50 mr-5">{{ loginInfo.ProjectName }}</span>
+      <span class="text-dark-100 mr-5">项目ID：{{ loginInfo.CuID }}</span>
       <LayoutBreadcrumb v-if="getShowContent && getShowBread" :theme="getHeaderTheme" />
     </div>
     <!-- left end -->
@@ -73,7 +75,11 @@
   import LayoutMenu from '../menu/index.vue';
   import LayoutTrigger from '../trigger/index.vue';
   import { ErrorAction, FullScreen, LayoutBreadcrumb, Notify, UserDropDown } from './components';
+  import { useUserStore } from '@/store/modules/user';
 
+  const userStore = useUserStore();
+
+  const loginInfo = userStore.getLoginInfo;
   const SettingDrawer = createAsyncComponent(() => import('@/layouts/default/setting/index.vue'), {
     loading: true,
   });

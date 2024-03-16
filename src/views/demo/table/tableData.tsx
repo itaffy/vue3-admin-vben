@@ -249,16 +249,16 @@ export function getFormConfig(): Partial<FormProps> {
     labelWidth: 100,
     schemas: [
       ...getAdvanceSchema(5),
-      {
-        field: `field11`,
-        label: `Slot示例`,
-        // component: 'Select',
-        slot: 'custom',
-        colProps: {
-          xl: 12,
-          xxl: 8,
-        },
-      },
+      // {
+      //   field: `field11`,
+      //   label: `Slot示例`,
+      //   // component: 'Select',
+      //   slot: 'custom',
+      //   colProps: {
+      //     xl: 12,
+      //     xxl: 8,
+      //   },
+      // },
     ],
   };
 }
